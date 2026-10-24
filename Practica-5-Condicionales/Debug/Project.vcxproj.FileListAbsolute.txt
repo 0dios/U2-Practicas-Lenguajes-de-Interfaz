@@ -1,0 +1,3 @@
+C:\LenguajesDeInterfaz\Project32_VS2022\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica00\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica-5-Condicionales\Debug\Project.exe

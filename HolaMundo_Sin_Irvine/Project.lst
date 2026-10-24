@@ -1,0 +1,86 @@
+Microsoft (R) Macro Assembler Version 14.44.35228.0	    10/19/26 15:26:52
+Practica00.asm						     Page 1 - 1
+
+
+				.386
+				.model flat, stdcall
+				.stack 4096
+				
+				INCLUDELIB kernel32.lib
+				
+				; --- Avisamos al ensamblador qué funciones de Windows vamos a usar ---
+				GetStdHandle  PROTO, nStdHandle:DWORD
+				WriteConsoleA PROTO, hConsoleOutput:DWORD, lpBuffer:PTR BYTE,
+				                     nNumberOfCharsToWrite:DWORD,
+				                     lpNumberOfCharsWritten:PTR DWORD, lpReserved:DWORD
+				ExitProcess   PROTO, dwExitCode:DWORD
+				
+ 00000000			.data
+ 00000000 48 6F 6C 61 2C	mensaje  BYTE "Hola, mundo", 13, 10    ; texto + salto de línea
+	   20 6D 75 6E 64
+	   6F 0D 0A
+ 0000000D = 0000000D		largo    EQU $ - mensaje               ; longitud calculada sola
+ 0000000D 00000000		escritos DWORD ?                       ; Windows guarda aquí cuántos escribió
+				
+ 00000000			.code
+ 00000000			main PROC
+				    INVOKE GetStdHandle, -11                                        ; eax = identificador de la pantalla
+ 00000000  6A F5	   *	    push    -00000000Bh
+ 00000002  E8 00000000 E   *	    call   GetStdHandle
+				    INVOKE WriteConsoleA, eax, OFFSET mensaje, largo, OFFSET escritos, 0
+ 00000007  6A 00	   *	    push   +000000000h
+ 00000009  68 0000000D R   *	    push   dword  ptr OFFSET FLAT: escritos
+ 0000000E  68 0000000D	   *	    push   +00000000Dh
+ 00000013  68 00000000 R   *	    push   dword  ptr OFFSET FLAT: mensaje
+ 00000018  50		   *	    push   eax
+ 00000019  E8 00000000 E   *	    call   WriteConsoleA
+				    INVOKE ExitProcess, 0
+ 0000001E  6A 00	   *	    push   +000000000h
+ 00000020  E8 00000000 E   *	    call   ExitProcess
+ 00000025			main ENDP
+				END main
+Microsoft (R) Macro Assembler Version 14.44.35228.0	    10/19/26 15:26:52
+Practica00.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000011 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000025 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetStdHandle . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+WriteConsoleA  . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000025 Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+escritos . . . . . . . . . . . .	DWord	 0000000D _DATA	
+largo  . . . . . . . . . . . . .	Number	 0000000Dh   
+mensaje  . . . . . . . . . . . .	Byte	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors

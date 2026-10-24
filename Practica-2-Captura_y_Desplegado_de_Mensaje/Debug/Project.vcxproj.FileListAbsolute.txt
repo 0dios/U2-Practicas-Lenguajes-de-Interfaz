@@ -1,0 +1,4 @@
+C:\LenguajesDeInterfaz\Project32_VS2022\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica00\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica02-Captura_y_Desplegado_de_Mensaje\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica-2-Captura_y_Desplegado_de_Mensaje\Debug\Project.exe

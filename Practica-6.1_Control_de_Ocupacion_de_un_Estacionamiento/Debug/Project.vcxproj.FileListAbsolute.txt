@@ -1,0 +1,4 @@
+C:\LenguajesDeInterfaz\Project32_VS2022\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica00\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica08\Debug\Project.exe
+C:\Users\ulise\OneDrive\Documents\ESCUELA\LENGUAJES DE INTERFAZ\Practica-6.1_Control_de_Ocupacion_de_un_Estacionamiento\Debug\Project.exe
